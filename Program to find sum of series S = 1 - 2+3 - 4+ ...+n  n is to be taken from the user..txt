@@ -1,0 +1,22 @@
+/*Write a program to compute the sum of the first n terms of the following series:
+S = 1 - 2+3 - 4+ ...+n
+The number of terms n is to be taken from the user.*/
+
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n;
+    int sum=0;
+    cout << "ENTER THE NUMBER OF TERMS" << endl;
+    cin>>n;
+    for(int i=1;i<n+1;i++){
+        if(i%2==0)sum-=i;
+        else sum+=i;
+    }
+    cout<<"SUM OF n TERMS = "<<sum;
+    return 0;
+
+}

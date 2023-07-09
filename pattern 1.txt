@@ -1,0 +1,27 @@
+/*
+Write a program to display the following pattern:
+
+1 
+22
+333
+4444
+55555
+
+The number of rows to be displayed is to be taken from the user.
+*/
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cout<<"Enter the no. of rows\n";
+    cin>>n;
+    for(int i=1;i<n+1;i++){
+        for(int j=1;j<=i;j++){
+            cout<<i;
+        }
+        cout<<"\n";
+    }
+    return 0;
+
+}
