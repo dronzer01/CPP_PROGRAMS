@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+class polygon
+{
+protected:
+    int area;
+    int peri;
+public:
+    polygon();
+    ~polygon();
+};
+polygon::polygon()
+{
+    cout<<"constr for base class"<<"and area="<<0<<endl;
+}
+polygon::~polygon()
+{
+    cout<<"destr for base class"<<endl;
+}
+class triangle:public polygon
+{
+public:
+    triangle()
+    {
+        cout<<"constr for derv class";
+    }
+    ~triangle()
+    {
+        cout<<"destr for derv class";
+    }
+    };
+int main()
+{
+    triangle tr();
+    return 0;
+}

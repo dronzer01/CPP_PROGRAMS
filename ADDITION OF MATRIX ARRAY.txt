@@ -1,0 +1,41 @@
+#include <iostream>
+#include<iomanip>
+using namespace std;
+int main()
+{
+    int i,j;
+     int a[2][2]=
+     {
+         {1,2},
+         {3,4}
+     };
+     for(i=0;i<2;i++)
+     {for(j=0;j<2;j++)
+     cout<<setw(3)<<a[i][j];
+     cout<<endl;
+     }
+     int b[2][2]=
+     {
+
+         {16,8},
+         {3,4}
+     };
+     for(i=0;i<2;i++)
+     {
+         for(j=0;j<2;j++)
+            cout<<setw(3)<<b[i][j];
+            cout<<endl;
+     }
+     int c[i][j];
+     for(i=0;i<2;i++)
+         for(j=0;j<2;j++)
+            c[i][j]=a[i][j]+b[i][j];
+     for(i=0;i<2;i++)
+     {
+         for(j=0;j<2;j++)
+         cout<<setw(3)<<c[i][j];
+         cout<<endl;
+}
+     return 0;
+}
+

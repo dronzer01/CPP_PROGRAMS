@@ -1,0 +1,205 @@
+#include <iostream>
+using namespace std;
+const int MAX=5;
+template<class Type>
+class Queuetype
+{
+    int f,r;
+public:
+    Type q[MAX];
+    Queuetype()
+    {
+        f=r=-1;
+    }
+    void addition(Type);
+    Type deletion();
+    int isempty();
+    int isfull();
+    void display();
+    int count();
+};
+template<class Type>
+void Queuetype<Type>::addition(Type x)
+{
+    if(f==-1)
+    {
+        f=r=0;
+        q[r]=x;
+    }
+    else
+    {
+        r++;
+        q[r]=x;
+    }
+}
+template<class Type>
+int Queuetype<Type>::isempty()
+{
+    if(f==-1)
+        return 1;
+    else
+        return -1;
+}
+template<class Type>
+int Queuetype<Type>::isfull()
+{
+    if(r==MAX-1)
+        return 1;
+    else
+        return -1;
+}
+template<class Type>
+Type Queuetype<Type>::deletion()
+{
+    Type temp;
+    if(f==r)
+    {
+        temp=q[f];
+        f=r=-1;
+    }
+    else
+    {
+        temp=q[f];
+        f++;
+    }
+    return temp;
+}
+template<class Type>
+int Queuetype<Type>::count()
+{
+
+    int ct=0;
+    if(f==-1)
+        return 0;
+    else
+    {
+        for(int i=f;i<=r;i++)
+        {
+            ct++;
+        }
+        return ct;
+    }
+}
+template<class Type>
+void Queuetype<Type>::display()
+{
+    if(f==-1)
+    {
+        cout<<"Queue is empty\n";
+    }
+    else
+    {
+        cout<<"Queue is => ";
+        for(int i=f;i<=r;i++)
+        {
+            cout<<q[i]<<" ";
+        }
+    }
+}
+int main()
+{
+    Queuetype<int>q1;
+    Queuetype<string>q2;
+    char ch='y';
+    string add,del;
+    int choice,a,d,e,f,c;
+    while(ch=='y')
+    {
+        cout<<"Main Module.......\n";
+        cout<<"Operations on Numbers....\n";
+        cout<<"1.Isempty\n";
+        cout<<"2.Isfull\n";
+        cout<<"3.Count\n";
+        cout<<"4.Display\n";
+        cout<<"5.Addition\n";
+        cout<<"6.Deletion\n";
+        cout<<"Operations on Strings....\n";
+        cout<<"7.Addition\n";
+        cout<<"8.Deletion\n";
+        cout<<"9.Isempty\n";
+        cout<<"10.Isfull\n";
+        cout<<"11.Count\n";
+        cout<<"12.Display\n";
+        cout<<"Enter your choice\n";
+        cin>>choice;
+        switch(choice)
+        {
+            case 1:e=q1.isempty();
+                   if(e==1)
+                    cout<<"Queue is empty\n";
+                   else
+                    cout<<"Queue is not empty\n";
+                   break;
+            case 2:f=q1.isfull();
+                   if(f==1)
+                    cout<<"Queue is Full\n";
+                   else
+                    cout<<"Queue is not Full\n";
+                   break;
+            case 3:c=q1.count();
+                   cout<<"Number of elements in Queue are "<<c<<endl;
+                   break;
+            case 4:q1.display();
+                   break;
+            case 5:f=q1.isfull();
+                   if(f==1)
+                    cout<<"OverFlow!!!!Queue is full\n";
+                   else
+                   {
+                       cout<<"Enter the number you want to add\n";
+                       cin>>a;
+                       q1.addition(a);
+                   }
+                   break;
+           case 6:e=q1.isempty();
+                  if(e==1)
+                    cout<<"UnderFlow!!!!Queue is empty\n";
+                  else
+                  {
+                      d=q1.deletion();
+                      cout<<d<<" has been deleted\n";
+                  }
+                  break;
+            case 7:f=q2.isfull();
+                   if(f==1)
+                    cout<<"OverFlow!!!!Queue is full\n";
+                   else
+                   {
+                       cout<<"Enter the String you want to add\n";
+                       cin>>add;
+                       q2.addition(add);
+                   }
+                   break;
+           case 8:e=q2.isempty();
+                  if(e==1)
+                    cout<<"UnderFlow!!!!Queue is empty\n";
+                  else
+                  {
+                      del=q2.deletion();
+                      cout<<del<<" has been deleted\n";
+                  }
+                  break;
+            case 9:e=q2.isempty();
+                   if(e==1)
+                    cout<<"Queue is empty\n";
+                   else
+                    cout<<"Queue is not empty\n";
+                   break;
+            case 10:f=q2.isfull();
+                   if(f==1)
+                    cout<<"Queue is Full\n";
+                   else
+                    cout<<"Queue is not Full\n";
+                   break;
+            case 11:c=q2.count();
+                   cout<<"Number of elements in Queue are "<<c<<endl;
+                   break;
+            case 12:q2.display();
+                   break;
+
+        }
+        cout<<"Do You Want To Continue(y/n)\n";
+        cin>>ch;
+    }
+    return 0;
+}
