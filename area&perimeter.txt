@@ -1,0 +1,15 @@
+#include <iostream>
+#include<cmath>
+using namespace std;
+int main()
+{
+    int a,b,c,area,perimeter;
+    cin>>a>>b;
+    c=sqrt((a*a)+(b*b));
+    cout<<"value of c="<<c<<endl;
+    area=(a*b)/2;
+    cout<<"area="<<area<<endl;
+    perimeter=a+b+c;
+    cout<<"perimeter="<<perimeter<<endl;
+    return 0;
+}

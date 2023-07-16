@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+class fraction
+    {
+      int n,d;
+      public:
+            fraction()
+          {
+              n=d=0;
+          }
+          fraction(int x,int y)
+          {
+              n=x;
+              d=y;
+          }
+      fraction(const fraction& o10)
+          {
+              n=o10.n;
+              d=o10.d;
+          }
+      void getinp(int x,int y);
+      void display();
+    };
+     void fraction :: getinp(int x,int y)
+      {
+          n=x;
+          d=y;
+      }
+      void fraction :: display()
+      {
+          cout<<n<<"/"<<d;
+      }
+int main()
+{
+    int x,y;
+    fraction o1(4,5),o2(7,8),o3(o2);
+    o1.display();
+    cout<<endl    ;
+    o2.display();
+    cout<<endl;
+    o3.display();
+    cout<<endl;
+    o1.getinp(14,15);
+    //cout<<endl;
+    cout<<"enter the value of n and d\n";
+    cin>>x>>y;
+    o2.getinp(x,y);
+      o1.display();
+    cout<<endl    ;
+    o2.display();
+    return 0;
+}

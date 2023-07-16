@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+const int size=10;
+template<class s>
+class stack
+{
+    s stck[size];
+    int tos;
+public:
+    stack()
+    {
+        tos=0;
+    }
+    void push(s a);
+    s pop();
+};
+template<class s>
+void stack<s>::push(s a)
+{
+    if(tos==size)
+    {
+        cout<<"Stack is full\n";
+        return;
+    }
+    stck[tos]=a;
+    tos++;
+}
+template<class s>
+s stack<s>::pop()
+{
+    if(tos==0)
+    {
+        cout<<"Stack is empty\n";
+        return 0;
+    }
+    tos--;
+    return stck[tos];
+}
+int main()
+{
+    stack<char>s1,s2;
+    int i;
+    s1.push('a');
+    s2.push('x');
+    s1.push('b');
+    s2.push('y');
+    s1.push('c');
+    s2.push('z');
+    for(int i=0;i<3;i++)
+    {
+        cout<<"Pop s1: "<<s1.pop()<<endl;
+    }
+    for(int i=0;i<3;i++)
+    {
+        cout<<"Pop s2: "<<s2.pop()<<endl;
+    }
+     stack<double>ds1,ds2;
+    ds1.push(1.2);
+    ds2.push(3.4);
+    ds1.push(4.5);
+    ds2.push(5.6);
+    ds1.push(7.8);
+    ds2.push(9.1);
+    for(int i=0;i<3;i++)
+    {
+        cout<<"Pop s1: "<<ds1.pop()<<endl;
+    }
+    for(int i=0;i<3;i++)
+    {
+        cout<<"Pop s2: "<<ds2.pop()<<endl;
+    }
+    return 0;
+}
